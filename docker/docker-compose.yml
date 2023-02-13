@@ -8,6 +8,8 @@ services:
      - todoback
     environment:
      - FRONT_HOST=todofront
+    networks:
+     - rede
 
   todofront: 
     image: todofront
@@ -18,6 +20,8 @@ services:
      - REACT_APP_API_PORT=3001
     ports:
      - 3000:3000
+    networks:
+     - rede
   
   todoback:
     image: todoback
@@ -25,3 +29,8 @@ services:
      - 3001:3001
     enviroment:
      - FRONT_PORT=3000
+    networks:
+     - rede
+
+networks: 
+  rede:
