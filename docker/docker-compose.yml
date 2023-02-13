@@ -1,5 +1,4 @@
-version: "3"
-
+version: '3'
 services: 
   todotests:
     image: todotests
@@ -10,9 +9,8 @@ services:
      - FRONT_HOST=todofront
     networks:
      - rede
-
   todofront: 
-    image: todofront
+    image: todofrontend
     depends_on: 
      - todoback
     environment:
@@ -22,15 +20,13 @@ services:
      - 3000:3000
     networks:
      - rede
-  
   todoback:
-    image: todoback
+    image: todobackend
     ports: 
      - 3001:3001
     enviroment:
      - FRONT_PORT=3000
     networks:
      - rede
-
 networks: 
   rede:
